@@ -48,20 +48,21 @@
 				mesh.receiveShadow = true;
 				scene.add( mesh );
 
-				    // create a cube
-					var cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
-    var cubeMaterial = new THREE.MeshBasicMaterial({
-        color: 0xFF0000,
-        wireframe: false
-    });
-    var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+					// create a cube
+				
+				var cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
+    			var cubeMaterial = new THREE.MeshBasicMaterial({
+        			color: 0xFF0000,
+        			wireframe: false
+    			});
+    			var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 
-    // position the cube
-	cube.position.y = 0.75;
+    			// position the cube
+				cube.position.y = 0.75;
 				cube.position.z = - 2;
 
-    // add the cube to the scene
-    scene.add(cube);
+    			// add the cube to the scene
+    			scene.add(cube);
 
 				// var geometry = new THREE.BoxBufferGeometry( 1.5, 0.1, 1.5 );
 				// var material = new THREE.MeshPhongMaterial();
@@ -72,41 +73,41 @@
 				// mesh.receiveShadow = true;
 				// scene.add( mesh );
 
-				// var light = new THREE.DirectionalLight( 0x8800ff );
-				// light.position.set( - 1, 1.5, - 1.5 );
-				// light.castShadow = true;
-				// light.shadow.camera.zoom = 4;
-				// scene.add( light );
-				// light.target.position.set( 0, 0, - 2 );
-				// scene.add( light.target );
+				var light = new THREE.DirectionalLight( 0x8800ff );
+				light.position.set( - 1, 1.5, - 1.5 );
+				light.castShadow = true;
+				light.shadow.camera.zoom = 4;
+				scene.add( light );
+				light.target.position.set( 0, 0, - 2 );
+				scene.add( light.target );
 
-				// // var helper = new CameraHelper( light.shadow.camera );
-				// // scene.add( helper );
+				// var helper = new CameraHelper( light.shadow.camera );
+				// scene.add( helper );
 
-				// var light = new THREE.DirectionalLight( 0xff0000 );
-				// light.position.set( 1, 1.5, - 2.5 );
-				// light.castShadow = true;
-				// light.shadow.camera.zoom = 4;
-				// scene.add( light );
-				// light.target.position.set( 0, 0, - 2 );
-				// scene.add( light.target );
+				var light = new THREE.DirectionalLight( 0xff0000 );
+				light.position.set( 1, 1.5, - 2.5 );
+				light.castShadow = true;
+				light.shadow.camera.zoom = 4;
+				scene.add( light );
+				light.target.position.set( 0, 0, - 2 );
+				scene.add( light.target );
 
-				// // var helper = new CameraHelper( light.shadow.camera );
-				// // scene.add( helper );
+				// var helper = new CameraHelper( light.shadow.camera );
+				// scene.add( helper );
 
-				// // lensflare
-				// var loader = new THREE.TextureLoader();
-				// var texture0 = loader.load( "textures/lensflare/lensflare0.png" );
-				// var texture3 = loader.load( "textures/lensflare/lensflare3.png" );
+				// lensflare
+				var loader = new THREE.TextureLoader();
+				var texture0 = loader.load( "textures/lensflare/lensflare0.png" );
+				var texture3 = loader.load( "textures/lensflare/lensflare3.png" );
 
-				// var lensflare = new Lensflare();
-				// lensflare.position.set( 0, 5, - 5 );
-				// lensflare.addElement( new LensflareElement( texture0, 700, 0 ) );
-				// lensflare.addElement( new LensflareElement( texture3, 60, 0.6 ) );
-				// lensflare.addElement( new LensflareElement( texture3, 70, 0.7 ) );
-				// lensflare.addElement( new LensflareElement( texture3, 120, 0.9 ) );
-				// lensflare.addElement( new LensflareElement( texture3, 70, 1 ) );
-				// scene.add( lensflare );
+				var lensflare = new Lensflare();
+				lensflare.position.set( 0, 5, - 5 );
+				lensflare.addElement( new LensflareElement( texture0, 700, 0 ) );
+				lensflare.addElement( new LensflareElement( texture3, 60, 0.6 ) );
+				lensflare.addElement( new LensflareElement( texture3, 70, 0.7 ) );
+				lensflare.addElement( new LensflareElement( texture3, 120, 0.9 ) );
+				lensflare.addElement( new LensflareElement( texture3, 70, 1 ) );
+				scene.add( lensflare );
 
 				// //
 
@@ -166,8 +167,12 @@
 
 				var time = performance.now() * 0.0002;
 				var mesh = scene.children[ 0 ];
+				var cube = scene.children[ 1 ];
 				mesh.rotation.x = time * 2;
 				mesh.rotation.y = time * 5;
+
+				cube.rotation.x = -time * 2;
+				cube.rotation.y = -time * 5;
 
 				renderer.render( scene, camera );
 
